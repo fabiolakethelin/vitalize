@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useStateProvider } from '../../utils/StateProvider';
 import { Container, Exercises } from './Exercise.style';
 import Search from '../exercise/Search';
@@ -7,6 +8,7 @@ import Pagination from '../layout/Pagination';
 export const Exercise = () => {
 
   const [{searchedExercises}] = useStateProvider();
+  const [currentPage, setCurrentPage] = useState(1);
 
   const getCurrentPageItems = () => {
     const startIndex = (currentPage - 1) * 8;
@@ -29,7 +31,7 @@ export const Exercise = () => {
       ))}
       </Exercises>
 
-      <Pagination items={searchedExercises} />
+      <Pagination items={searchedExercises} setCurrentPage={setCurrentPage}/>
       
     </Container>
   );

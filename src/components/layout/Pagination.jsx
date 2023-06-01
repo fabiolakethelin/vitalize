@@ -2,7 +2,7 @@ import React from "react";
 import ReactPaginate from "react-paginate";
 import { Container } from "./Pagination.style";
 
-export const Pagination = ({ items }) => {
+export const Pagination = ({ items, setCurrentPage }) => {
     const pageCount = Math.ceil(items.length / 8);
 
     const handleChange = ({selected}) => {
